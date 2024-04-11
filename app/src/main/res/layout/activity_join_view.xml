@@ -10,6 +10,7 @@
     <!-- action_bar_title이라는 ID를 가진 TextView를 추가하는 부분. -->
     <!--<include layout="@layout/custom_actionbar_join" />-->
 
+
     <WebView
         android:id="@+id/joinWebViewId"
         android:layout_width="match_parent"
@@ -18,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"></WebView>
+        app:layout_constraintVertical_bias="0.0"></WebView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
