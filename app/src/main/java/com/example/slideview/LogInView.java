@@ -1,10 +1,12 @@
 package com.example.slideview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -75,5 +77,12 @@ public class LogInView extends AppCompatActivity {
             view.loadUrl(url);
             return true;
         }
+    }
+    /////////////////////////
+    //////////////////////////
+    //프로젝트 뷰(BottonNavigationView) 이동 버튼의 이벤트리스너
+    public void onClickCheckBtn(View v){
+        Intent appIntent=new Intent(this, AppMainActivity.class); //(메시지 보내는 컴포넌트,호출될 컴포넌트)
+        startActivity(appIntent); //버튼이 눌리면 액티비티 화면 전환
     }
 }

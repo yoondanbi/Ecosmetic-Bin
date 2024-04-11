@@ -19,6 +19,9 @@ public class MainActivity extends FragmentActivity {
     private int startView = 0;      //뷰 시작시점
     private int maxView = 600;      //최대 뷰 개수
 
+    //하단바 bottomNavigationView관련
+    // LinearLayout home_ly;
+    //BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +36,7 @@ public class MainActivity extends FragmentActivity {
         //2. Indicator
         mIndicator = (CircleIndicator3) findViewById(R.id.indicator);
         mIndicator.setViewPager(mPager);
-        mIndicator.createIndicators(num_page,0); //인디케이터로 표시할 아이콘 개수 지정(=fragment개수와 같게 지정)
+        mIndicator.createIndicators(num_page, 0); //인디케이터로 표시할 아이콘 개수 지정(=fragment개수와 같게 지정)
         //3. ViewPager Setting
         mPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
         mPager.setCurrentItem(startView, false);        //시작페이지 설정
@@ -47,39 +50,25 @@ public class MainActivity extends FragmentActivity {
                     mPager.setCurrentItem(position);
                 }
             }
+
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                mIndicator.animatePageSelected(position%num_page);
+                mIndicator.animatePageSelected(position % num_page);
             }
-        });
-        /* 페이지 간의 간격 등의 설정
-        final float pageMargin= getResources().getDimensionPixelOffset(R.dimen.pageMargin);
-        final float pageOffset = getResources().getDimensionPixelOffset(R.dimen.offset);
-        mPager.setPageTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float myOffset = position * -(2 * pageOffset + pageMargin);
-                if (mPager.getOrientation() == ViewPager2.ORIENTATION_HORIZONTAL) {
-                    if (ViewCompat.getLayoutDirection(mPager) == ViewCompat.LAYOUT_DIRECTION_RTL) {
-                        page.setTranslationX(-myOffset);
-                    } else {
-                        page.setTranslationX(myOffset);
-                    }
-                } else {
-                    page.setTranslationY(myOffset);
-                }
-            }
-        });*/
-    }
+        }); // end of callback ...
+
+    }// end of onCreate ...
+
     //로그인 버튼의 이벤트리스너
-    public void onClickLogInBtn(View v){
-        Intent LogInIntent=new Intent(this, LogInView.class); //(메시지 보내는 컴포넌트,호출될 컴포넌트)
+    public void onClickLogInBtn(View v) {
+        Intent LogInIntent = new Intent(this, LogInView.class); //(메시지 보내는 컴포넌트,호출될 컴포넌트)
         startActivity(LogInIntent); //버튼이 눌리면 액티비티 화면 전환
     }
+
     //회원가입 버튼의 이벤트리스너
-    public void onClickJoinBtn(View v){
-        Intent JoinIntent=new Intent(this, JoinView.class); //(메시지 보내는 컴포넌트,호출될 컴포넌트)
+    public void onClickJoinBtn(View v) {
+        Intent JoinIntent = new Intent(this, JoinView.class); //(메시지 보내는 컴포넌트,호출될 컴포넌트)
         startActivity(JoinIntent); //버튼이 눌리면 액티비티 화면 전환
     }
-}
+} // end of MainActivity ...

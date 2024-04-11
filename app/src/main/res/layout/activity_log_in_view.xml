@@ -9,13 +9,32 @@
 
     <WebView
         android:id="@+id/logInWebViewId"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="411dp"
+        android:layout_height="588dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"></WebView>
+        app:layout_constraintVertical_bias="0.0"></WebView>
+
+    <Button
+        android:id="@+id/checkBtn"
+        android:layout_width="115dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#2C8E30"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="onClickCheckBtn"
+        android:text="시작"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logInWebViewId"
+        app:layout_constraintVertical_bias="0.614" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
