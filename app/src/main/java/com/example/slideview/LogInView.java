@@ -87,7 +87,7 @@ public class LogInView extends AppCompatActivity {
         }
     }
     /////////////////////////
-    //////////////////////////
+    //////////////////////////나중에 수정할 부분!
     //프로젝트 뷰(BottonNavigationView) 이동 버튼의 이벤트리스너
     public void onClickCheckBtn(View v){
         Intent appIntent=new Intent(this, AppMainActivity.class); //(메시지 보내는 컴포넌트,호출될 컴포넌트)
