@@ -11,6 +11,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,15 +27,22 @@ public class LogInView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_view);
 
-        //액션바 관련
-        actionBar=getSupportActionBar();
-        //actionBar.setTitle("로그인"); //실행 중 액션바 타이틀을 변경
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); //커스텀 된 액션바로 설정
-        actionBar.setCustomView(R.layout.custom_actionbar_login); // res/layout/custom_action_bar에 작성한 설정 적용
-        ActionBar.LayoutParams params = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, Gravity.CENTER);
-        actionBar.setCustomView(actionBar.getCustomView(), params);
-        actionBar.setDisplayHomeAsUpEnabled(true); //툴바의 홈버튼을 활성화(아이콘을 맨 왼쪽으로 배치하는 방법의 대안)
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.my_menu_back);//홈버튼 이미지를 뒤로가기 이미지로 변경
+        if (actionBar == null) { //액션바가 null이면
+            // ActionBar가 null이면 사용자에게 메시지를 표시합니다.
+            Toast.makeText(this, "ActionBar를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else{
+            //액션바 관련
+            actionBar=getSupportActionBar();
+            //actionBar.setTitle("로그인"); //실행 중 액션바 타이틀을 변경
+            actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); //커스텀 된 액션바로 설정
+            actionBar.setCustomView(R.layout.custom_actionbar_login); // res/layout/custom_action_bar에 작성한 설정 적용
+            ActionBar.LayoutParams params = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, Gravity.CENTER);
+            actionBar.setCustomView(actionBar.getCustomView(), params);
+            actionBar.setDisplayHomeAsUpEnabled(true); //툴바의 홈버튼을 활성화(아이콘을 맨 왼쪽으로 배치하는 방법의 대안)
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.my_menu_back);//홈버튼 이미지를 뒤로가기 이미지로 변경
+        }
 
         //웹뷰 변수 설정
         webView=(WebView)findViewById(R.id.logInWebViewId); //웹뷰 초기화
