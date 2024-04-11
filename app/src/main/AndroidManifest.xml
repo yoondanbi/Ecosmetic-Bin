@@ -16,6 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:theme="@style/Theme.Design.Light.NoActionBar"
             android:name=".AppMainActivity"
             android:exported="false" />
         <activity
